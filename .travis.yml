@@ -8,7 +8,9 @@ script:
 - cd $TRAVIS_BUILD_DIR/googletest/make
 - make
 - ./sample1_unittest 
+- coveralls
 after_script:
 before_install:
 - if [ "$TRAVIS_OS_NAME" == "linux" ]; then travis_retry sudo apt-get update; fi
-- if [ "$TRAVIS_OS_NAME" == "linux" ]; then travis_retry sudo apt-get install git g++; fi
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then travis_retry sudo apt-get install git g++ libyaml-dev; fi
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then travis_retry sudo pip install --user pyyaml cpp-coveralls; fi
