@@ -9,7 +9,7 @@ script:
 - make
 - ./sample1_unittest 
 - cd $TRAVIS_BUILD_DIR
-- coveralls  -i googletest/samples
+- coveralls  -i googletest/samples -i googletest/src
 after_script:
 before_install:
 - if [ "$TRAVIS_OS_NAME" == "linux" ]; then travis_retry sudo apt-get update; fi
