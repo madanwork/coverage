@@ -1,0 +1,14 @@
+matrix:
+  include:
+  - os: linux
+    dist: trusty
+    sudo: required
+language: c++
+script:
+- cd $TRAVIS_BUILD_DIR/googletest/make
+- make
+- ./sample1_unittest 
+after_script:
+before_install:
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then travis_retry sudo apt-get update; fi
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then travis_retry sudo apt-get install git g++ gcov; fi
